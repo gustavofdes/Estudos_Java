@@ -23,8 +23,15 @@ public class Main {
                 }
             }
 
+            while (true){
             System.out.println("Numero: ");
-            num = scanner.nextInt();
+                try {
+                num = Integer.parseInt(scanner.next());
+                break;
+                } catch (NumberFormatException e){
+                    System.out.println("ERRO: Digite um numero valido!!");
+                }
+            }
 
             if (num == 0 && opEscolhida.equals("/")) {
                 System.out.println("Não é possível dividir por zero. Tente novamente");
@@ -69,5 +76,7 @@ public class Main {
                 }
             }
         } while (respContinue.trim().equalsIgnoreCase("S"));
+        System.out.println("Programa encerrado com sucesso!");
+        scanner.close();
     }
 }
