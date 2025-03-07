@@ -28,45 +28,19 @@ public class Main {
                 try {
                 num = Integer.parseInt(scanner.next());
                 } catch (NumberFormatException e){
-                    System.out.println("ERRO: Digite um numero valido!!");
+                    System.out.println("\nERRO: Digite um numero valido!!\n");
                     continue;
                 }
 
                 if ((num == 0) && opEscolhida.equals("/")) {
-                    System.out.println("Não é possível dividir por zero. Tente novamente");
+                    System.out.println("\nERRO: Não é possível dividir por zero. Tente novamente\n");
                     continue;
                 }
                 break;
             }
 
 
-            switch (opEscolhida) {
-
-                case "*": {
-                    op.multiplicar(num, opEscolhida);
-                    break;
-                }
-
-                case "/": {
-                    op.dividir(num, opEscolhida);
-                    break;
-                }
-
-                case "-": {
-                    op.subtrair(num, opEscolhida);
-                    break;
-                }
-
-                case "+": {
-                    op.somar(num, opEscolhida);
-                    break;
-                }
-
-                default: {
-                    System.out.println("Operação Invalida");
-                }
-
-            }
+            op.realizarOperacao(num, opEscolhida);
 
             while (true) {
                 System.out.println("Deseja fazer uma nova operação? [S/N]");
