@@ -1,4 +1,4 @@
-package CalcuradoraDeTabuada;
+package CalculadoraDeTabuada;
 
 public class Operacoes {
 

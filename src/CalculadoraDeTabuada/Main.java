@@ -1,4 +1,4 @@
-package CalcuradoraDeTabuada;
+package CalculadoraDeTabuada;
 
 import java.util.Scanner;
 
@@ -27,16 +27,18 @@ public class Main {
             System.out.println("Numero: ");
                 try {
                 num = Integer.parseInt(scanner.next());
-                break;
                 } catch (NumberFormatException e){
                     System.out.println("ERRO: Digite um numero valido!!");
+                    continue;
                 }
+
+                if ((num == 0) && opEscolhida.equals("/")) {
+                    System.out.println("Não é possível dividir por zero. Tente novamente");
+                    continue;
+                }
+                break;
             }
 
-            if (num == 0 && opEscolhida.equals("/")) {
-                System.out.println("Não é possível dividir por zero. Tente novamente");
-                return;
-            }
 
             switch (opEscolhida) {
 
