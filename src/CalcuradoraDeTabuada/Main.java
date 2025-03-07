@@ -10,47 +10,64 @@ public class Main {
     public static void main(String[] args) {
         Operacoes op = new Operacoes();
 
-        System.out.println("Operação (+, -; *, /): ");
-        String opEscolhida = scanner.nextLine();
-
-
-        System.out.println("Numero: ");
-        num = scanner.nextInt();
-
-        if (num == 0 && opEscolhida.equals("/")){
-            System.out.println("Não é possível dividir por zero. Tente novamente");
-            return;
-        }
-
-        switch (opEscolhida){
-
-            case "*":{
-                op.multiplicar(num, opEscolhida);
-                break;
+        String respContinue;
+        String opEscolhida;
+        do {
+            while(true){
+                System.out.println("Operação (+, -; *, /): ");
+                opEscolhida = scanner.next().trim();
+                if (opEscolhida.equals("+") || opEscolhida.equals("-") || opEscolhida.equals("*") || opEscolhida.equals("/")){
+                    break;
+                } else {
+                    System.out.println("\nERRO: Escolha um opção valida!\n");
+                }
             }
 
-            case "/":{
-                op.dividir(num, opEscolhida);
-                break;
+            System.out.println("Numero: ");
+            num = scanner.nextInt();
+
+            if (num == 0 && opEscolhida.equals("/")) {
+                System.out.println("Não é possível dividir por zero. Tente novamente");
+                return;
             }
 
-            case "-":{
-                op.subtrair(num, opEscolhida);
-                break;
+            switch (opEscolhida) {
+
+                case "*": {
+                    op.multiplicar(num, opEscolhida);
+                    break;
+                }
+
+                case "/": {
+                    op.dividir(num, opEscolhida);
+                    break;
+                }
+
+                case "-": {
+                    op.subtrair(num, opEscolhida);
+                    break;
+                }
+
+                case "+": {
+                    op.somar(num, opEscolhida);
+                    break;
+                }
+
+                default: {
+                    System.out.println("Operação Invalida");
+                }
+
             }
 
-            case "+":{
-                op.somar(num, opEscolhida);
-                break;
+            while (true) {
+                System.out.println("Deseja fazer uma nova operação? [S/N]");
+                respContinue = scanner.next().trim();
+                if (respContinue.equalsIgnoreCase("S") || respContinue.equalsIgnoreCase("N")){
+                    break;
+                } else {
+                    System.out.println("\nERRO: Selecione uma opção valida!!\n");
+                }
             }
-
-            default:{
-                System.out.println("Operação Invalida");
-            }
-
-        }
-
-
+        } while (respContinue.trim().equalsIgnoreCase("S"));
     }
-
 }
