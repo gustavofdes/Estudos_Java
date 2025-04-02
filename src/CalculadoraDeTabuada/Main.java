@@ -19,7 +19,7 @@ public class Main {
                 if (opEscolhida.equals("+") || opEscolhida.equals("-") || opEscolhida.equals("*") || opEscolhida.equals("/")){
                     break;
                 } else {
-                    System.out.println("\nERRO: Escolha um opção valida!\n");
+                    System.err.println("\nERRO: Escolha um opção valida!\n");
                 }
             }
 
