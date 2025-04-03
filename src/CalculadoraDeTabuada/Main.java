@@ -19,7 +19,7 @@ public class Main {
                 if (opEscolhida.equals("+") || opEscolhida.equals("-") || opEscolhida.equals("*") || opEscolhida.equals("/")){
                     break;
                 } else {
-                    System.out.println("\nERRO: Escolha um opção valida!\n");
+                    System.err.println("\nERRO: Escolha um opção valida!\n");
                 }
             }
 
@@ -28,12 +28,12 @@ public class Main {
                 try {
                 num = Integer.parseInt(scanner.next());
                 } catch (NumberFormatException e){
-                    System.out.println("\nERRO: Digite um numero valido!!\n");
+                    System.err.println("\nERRO: Digite um numero valido!!\n");
                     continue;
                 }
 
                 if ((num == 0) && opEscolhida.equals("/")) {
-                    System.out.println("\nERRO: Não é possível dividir por zero. Tente novamente\n");
+                    System.err.println("\nERRO: Não é possível dividir por zero. Tente novamente\n");
                     continue;
                 }
                 break;
@@ -48,7 +48,7 @@ public class Main {
                 if (respContinue.equalsIgnoreCase("S") || respContinue.equalsIgnoreCase("N")){
                     break;
                 } else {
-                    System.out.println("\nERRO: Selecione uma opção valida!!\n");
+                    System.err.println("\nERRO: Selecione uma opção valida!!\n");
                 }
             }
         } while (respContinue.trim().equalsIgnoreCase("S"));

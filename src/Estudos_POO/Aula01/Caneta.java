@@ -2,7 +2,7 @@ package Estudos_POO.Aula01;
 
 public class Caneta {
     String modelo;
-    String cor;
+    private String cor;
     double ponta;
     int carga;
     boolean tampada;
