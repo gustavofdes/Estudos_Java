@@ -11,7 +11,6 @@ public class Caneta {
     public Caneta(String modelo, String cor, int carga){
 
         setModelo(modelo);
-
     }
 
 
