@@ -42,7 +42,7 @@ public class Carro {
     }
 
     public void exibirInformacoes(){
-        System.out.println("Carro: " + marca + " " + modelo + " - Ano " + ano);
+        System.out.println("Carro: " + this.marca + " " + this.modelo + " - Ano " + this.ano);
     }
 
 }

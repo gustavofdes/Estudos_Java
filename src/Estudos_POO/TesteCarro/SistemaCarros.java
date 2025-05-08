@@ -19,7 +19,8 @@ public class SistemaCarros {
             System.out.println("1 - Cadastrar um novo carro");
             System.out.println("2 - Exibir carros cadastrados");
             System.out.println("3 - Remover carro cadastrado");
-            System.out.println("4 - Encerrar o programa");
+            System.out.println("4 - Procurar carro cadastrado pela marca ou modelo");
+            System.out.println("5 - Encerrar o programa");
 
             while (executando) {
                 System.out.println("Digite a opção: ");
@@ -78,7 +79,6 @@ public class SistemaCarros {
                             }
                             break;
                         }
-
                         if (indice > 0 && indice <= listaCarros.size()){
                             Carro removido = listaCarros.remove(indice - 1);
                             System.out.println("Carro removido: " + removido.getMarca() + " " + removido.getModelo() + " - Ano " + removido.getAno());
@@ -90,13 +90,37 @@ public class SistemaCarros {
                 }
 
                 case 4: {
-                    System.out.println("Obrigado por utilizar nosso programa!");
+                    if (listaCarros.isEmpty()){
+                        System.out.println("Nenhum carro cadastrado no momento");
+                        break;
+                    } else {
+                        System.out.println("Digite a marca ou modelo do carro: ");
+                        String busca = scan.next().toLowerCase();
+                        boolean encontrado = false;
+
+                        for (Carro carro : listaCarros) {
+                            if (carro.getModelo().toLowerCase().contentEquals(busca) || carro.getMarca().toLowerCase().contentEquals(busca)) {
+                                carro.exibirInformacoes();
+                                encontrado = true;
+                            }
+                        }
+
+                        if (!encontrado){
+                            System.out.println("Nenhum carro encontrado com esse nome");
+                        }
+
+                    }
+                    break;
+                }
+                case 5: {
+                    System.out.println("Encerrando... Obrigado por utilizar nosso programa!");
                     executando = false;
                     break;
                 }
                 default: {
-                    System.err.println("\nERRO: Selecione uma opção do 1 ao 3");
+                    System.err.println("\nERRO: Selecione uma opção do 1 ao 4");
                 }
+
             }
         }
 
